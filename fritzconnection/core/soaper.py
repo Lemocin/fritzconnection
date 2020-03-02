@@ -46,6 +46,11 @@ def uuid_convert(value):
     return value.split(':')[-1]
 
 
+def ui2_convert(value):
+    """Handles port-ranges the right way"""
+    return list(map(int, value.split('-')))
+
+
 def encode_boolean(value):
     """
     Returns 1 or 0 if the value is True or False.
@@ -144,7 +149,7 @@ class Soaper:
         'uuid': uuid_convert,
         'i4': int,
         'ui1': int,
-        'ui2': int,
+        'ui2': ui2_convert,
         'ui4': int,
     }
 
